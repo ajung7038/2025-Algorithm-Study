@@ -9,6 +9,7 @@ public class boj_11403 {
         int n = Integer.parseInt(br.readLine());
         int[][] graph = new int[n][n];
 
+        // 입력
         for (int i = 0; i < n; i++) {
             String[] input = br.readLine().split(" ");
             for (int j = 0; j < n; j++) {
@@ -16,7 +17,8 @@ public class boj_11403 {
             }
         }
 
-        for (int k = 0; k < n; k++) {
+        // 플로이드 워셜 알고리즘으로 간접 경로 탐색
+        for (int k = 0; k < n; k++) { // 간접 경로(경유지)
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
                     if (graph[i][k] == 1 && graph[k][j] == 1) {
@@ -26,6 +28,7 @@ public class boj_11403 {
             }
         }
 
+        // 출력
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
